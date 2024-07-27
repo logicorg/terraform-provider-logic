@@ -1,0 +1,6 @@
+{
+  "[terraform]": {
+    "editor.tabSize": 2,
+  },
+  "sonarlint.testFilePattern": "internal/provider/*_test.go",
+}
