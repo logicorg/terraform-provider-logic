@@ -1,9 +1,9 @@
 ---
-page_title: "XOR Versus Exactly One True - terraform-provider-logic"
+page_title: "Xor Versus Exactly One True"
 ---
 
 # XOR Versus Exactly One True
-This page will guide you toward choosing the correct function between `provider::logic::xor` and `provider::logic::exactly_one_true`.
+This page will guide you toward choosing the correct function between `provider::logic::xor` and `provider::logic::exactly_one_true` for achieving your goals.
 
 Although the two functions may look similar, and they behave exactly the same if you pass a list of length two (`2`) to `exactly_one_true`, the two functions
 have a subtle difference in their behavior. Indeed, the `exactly_one_true` which may naively be thinked of as a multi-argument `xor` function, have a different
@@ -12,7 +12,7 @@ behaviour than a combination of `xor` functions, but let's go through an example
 ```hcl
 locals {
     # this will be false
-    xor_result = provider::logic::exactly_one_true([true, true, true])
+    exactly_one_result = provider::logic::exactly_one_true([true, true, true])
 
     # this will be true
     xor_result = provider::logic::xor(true, provider::logic::xor(true, true))

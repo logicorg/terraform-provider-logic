@@ -1,5 +1,5 @@
 ---
-page_title: "XOR Versus Exactly One True - terraform-provider-logic"
+page_title: "Xor Versus Exactly One True"
 ---
 
 # XOR Versus Exactly One True
@@ -12,7 +12,7 @@ behaviour than a combination of `xor` functions, but let's go through an example
 ```hcl
 locals {
     # this will be false
-    xor_result = provider::logic::exactly_one_true([true, true, true])
+    exactly_one_result = provider::logic::exactly_one_true([true, true, true])
 
     # this will be true
     xor_result = provider::logic::xor(true, provider::logic::xor(true, true))
