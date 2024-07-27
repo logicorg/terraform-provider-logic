@@ -3,7 +3,7 @@ page_title: "XOR Versus Exactly One True - terraform-provider-logic"
 ---
 
 # XOR Versus Exactly One True
-This page will guide you toward choosing the correct function between `provider::logic::xor` and `provider::logic::exactly_one_true`.
+This page will guide you toward choosing the correct function between `provider::logic::xor` and `provider::logic::exactly_one_true` for achieving your goals.
 
 Although the two functions may look similar, and they behave exactly the same if you pass a list of length two (`2`) to `exactly_one_true`, the two functions
 have a subtle difference in their behavior. Indeed, the `exactly_one_true` which may naively be thinked of as a multi-argument `xor` function, have a different
