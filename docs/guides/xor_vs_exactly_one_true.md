@@ -1,5 +1,5 @@
 ---
-page_title: "XOR Versus Exactly One True"
+page_title: "XOR Versus Exactly One True - terraform-provider-logic"
 ---
 
 # XOR Versus Exactly One True
