@@ -12,44 +12,36 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/provider"
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
-	"github.com/hashicorp/terraform-plugin-framework/types"
 )
 
-// Ensure ScaffoldingProvider satisfies various provider interfaces.
-var _ provider.Provider = &ScaffoldingProvider{}
-var _ provider.ProviderWithFunctions = &ScaffoldingProvider{}
+// Ensure LogicProvider satisfies various provider interfaces.
+var _ provider.Provider = &LogicProvider{}
+var _ provider.ProviderWithFunctions = &LogicProvider{}
 
-// ScaffoldingProvider defines the provider implementation.
-type ScaffoldingProvider struct {
+// LogicProvider defines the provider implementation.
+type LogicProvider struct {
 	// version is set to the provider version on release, "dev" when the
 	// provider is built and ran locally, and "test" when running acceptance
 	// testing.
 	version string
 }
 
-// ScaffoldingProviderModel describes the provider data model.
-type ScaffoldingProviderModel struct {
-	Endpoint types.String `tfsdk:"endpoint"`
-}
+// LogicProviderModel describes the provider data model.
+type LogicProviderModel struct{}
 
-func (p *ScaffoldingProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "scaffolding"
+func (p *LogicProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
+	resp.TypeName = "logic"
 	resp.Version = p.version
 }
 
-func (p *ScaffoldingProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
+func (p *LogicProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
 	resp.Schema = schema.Schema{
-		Attributes: map[string]schema.Attribute{
-			"endpoint": schema.StringAttribute{
-				MarkdownDescription: "Example provider attribute",
-				Optional:            true,
-			},
-		},
+		Description: "Provider of logic utility functions.",
 	}
 }
 
-func (p *ScaffoldingProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
-	var data ScaffoldingProviderModel
+func (p *LogicProvider) Configure(ctx context.Context, req provider.ConfigureRequest, resp *provider.ConfigureResponse) {
+	var data LogicProviderModel
 
 	resp.Diagnostics.Append(req.Config.Get(ctx, &data)...)
 
@@ -66,27 +58,24 @@ func (p *ScaffoldingProvider) Configure(ctx context.Context, req provider.Config
 	resp.ResourceData = client
 }
 
-func (p *ScaffoldingProvider) Resources(ctx context.Context) []func() resource.Resource {
-	return []func() resource.Resource{
-		NewExampleResource,
-	}
+func (p *LogicProvider) Resources(ctx context.Context) []func() resource.Resource {
+	return []func() resource.Resource{}
 }
 
-func (p *ScaffoldingProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
-	return []func() datasource.DataSource{
-		NewExampleDataSource,
-	}
+func (p *LogicProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
+	return []func() datasource.DataSource{}
 }
 
-func (p *ScaffoldingProvider) Functions(ctx context.Context) []func() function.Function {
+func (p *LogicProvider) Functions(ctx context.Context) []func() function.Function {
 	return []func() function.Function{
-		NewExampleFunction,
+		NewExactlyOneTrueFunction,
+		NewXorFunction,
 	}
 }
 
 func New(version string) func() provider.Provider {
 	return func() provider.Provider {
-		return &ScaffoldingProvider{
+		return &LogicProvider{
 			version: version,
 		}
 	}
