@@ -24,7 +24,7 @@ variable "mutually_exclusive" {
   }
 
   validation {
-    condition     = provider::logic::xor(var.mutually_exclusive.first, var.mutually_exclusive.second)
+    condition     = provider::logic::xor(var.mutually_exclusive.first != null, var.mutually_exclusive.second != null)
     error_message = "You must set one and only one of `first` or `second`."
   }
 }
