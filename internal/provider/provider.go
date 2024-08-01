@@ -71,6 +71,7 @@ func (p *LogicProvider) Functions(ctx context.Context) []func() function.Functio
 		NewExactlyOneTrueFunction,
 		NewXorFunction,
 		NewXnorFunction,
+		NewNandFunction,
 	}
 }
 
