@@ -1,5 +1,5 @@
 ---
-page_title: "Xor Versus Exactly One True"
+page_title: "xor vs. exactly_one_true"
 ---
 
 # XOR Versus Exactly One True

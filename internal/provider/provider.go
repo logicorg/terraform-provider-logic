@@ -69,7 +69,8 @@ func (p *LogicProvider) DataSources(ctx context.Context) []func() datasource.Dat
 func (p *LogicProvider) Functions(ctx context.Context) []func() function.Function {
 	return []func() function.Function{
 		NewExactlyOneTrueFunction,
-		NewXorFunction,
+		NewExactlyOneNotNullFunction,
+    NewXorFunction,
 		NewXnorFunction,
 		NewNandFunction,
 	}
