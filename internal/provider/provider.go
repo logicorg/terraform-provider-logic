@@ -70,6 +70,7 @@ func (p *LogicProvider) Functions(ctx context.Context) []func() function.Functio
 	return []func() function.Function{
 		NewExactlyOneTrueFunction,
 		NewXorFunction,
+		NewXnorFunction,
 		NewNandFunction,
 	}
 }
