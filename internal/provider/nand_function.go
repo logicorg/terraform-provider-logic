@@ -41,7 +41,7 @@ func (x NandFunction) Definition(_ context.Context, _ function.DefinitionRequest
 
 // Metadata implements function.Function.
 func (x NandFunction) Metadata(_ context.Context, req function.MetadataRequest, resp *function.MetadataResponse) {
-	resp.Name = "xor"
+	resp.Name = "nand"
 }
 
 // Run implements function.Function.
