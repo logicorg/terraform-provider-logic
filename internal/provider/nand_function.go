@@ -53,7 +53,7 @@ func (x NandFunction) Run(ctx context.Context, req function.RunRequest, resp *fu
 		return
 	}
 
-	result := !(first && second)
+	result := !first || !second
 
 	resp.Error = function.ConcatFuncErrors(resp.Error, resp.Result.Set(ctx, result))
 }
