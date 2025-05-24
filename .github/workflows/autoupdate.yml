@@ -1,6 +1,5 @@
 name: autoupdate
 on:
-  Alternatively, you can only trigger if commits are pushed to certain branches, e.g.:
   push:
     branches:
       - main
